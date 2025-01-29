@@ -1,8 +1,6 @@
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
 class passbyvalue {
 
     void change(int i) {
@@ -187,6 +185,10 @@ public class Basic {
         stu.name = "Adilur Rahman";
 
         //when a non primitive is final , you can change the value , but you cannot reassing another object
+        // stu = new A("new object");
+
+
+        
         //Garbage collection ->finalize() mehtod
         B sta = new B();
         sta = new B();
