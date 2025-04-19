@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-
+    // Inject the EmployeeRepository bean
     @Autowired
     private EmployeeRepository employeeRepository;
 

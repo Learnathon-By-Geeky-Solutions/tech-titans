@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 
+// Represents a user in the job portal system.
+
+
 @Data
 @Entity
 @Table(name = "users")

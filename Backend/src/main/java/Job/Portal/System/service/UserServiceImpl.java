@@ -24,16 +24,24 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+
+     // This method finds a user by their ID.
+
     @Override
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
+
+
+    // This method finds a user by their username.
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+
+    //This method finds a user by their email.
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
