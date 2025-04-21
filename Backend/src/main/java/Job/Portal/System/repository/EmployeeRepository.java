@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
+    /**
+     * Find an employee by their associated user.
+     */
     Employee findByUser(User user);
 }

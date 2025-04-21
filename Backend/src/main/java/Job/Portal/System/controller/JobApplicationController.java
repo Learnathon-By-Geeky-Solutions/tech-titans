@@ -6,6 +6,8 @@ import Job.Portal.System.model.Job;
 import Job.Portal.System.service.JobApplicationService;
 import Job.Portal.System.service.UserService;
 import Job.Portal.System.service.JobService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +20,14 @@ import java.util.Optional;
 public class JobApplicationController {
 
 
+    // Logger for logging purposes
+    private static final Logger logger = LoggerFactory.getLogger(JobApplicationController.class);
+
     @Autowired
     private JobApplicationService jobApplicationService;
 
-
     @Autowired
     private UserService userService;
-
 
     @Autowired
     private JobService jobService;
@@ -43,13 +46,16 @@ public class JobApplicationController {
      */
     @GetMapping("/job-seeker/{jobSeekerId}")
     public ResponseEntity<List<JobApplication>> getJobApplicationsByJobSeeker(@PathVariable Long jobSeekerId) {
+        logger.info("Fetching job applications for job seeker with ID: {}", jobSeekerId);  // Log the operation
         Optional<User> jobSeeker = userService.findById(jobSeekerId);
 
 
         if (jobSeeker.isPresent()) {
             List<JobApplication> jobApplications = jobApplicationService.getJobApplicationsByJobSeeker(jobSeeker.get());  // Get job applications
+            logger.info("Found {} job applications for job seeker with ID: {}", jobApplications.size(), jobSeekerId);  // Log success
             return ResponseEntity.ok(jobApplications);  // Return the list of job applications
         } else {
+            logger.warn("Job seeker with ID {} not found", jobSeekerId);  // Log warning if job seeker not found
             return ResponseEntity.notFound().build();  // Return 404 response if job seeker not found
         }
     }
@@ -74,7 +80,9 @@ public class JobApplicationController {
      */
     @GetMapping
     public ResponseEntity<List<JobApplication>> getAllJobApplications() {
+        logger.info("Fetching all job applications");  // Log the operation
         List<JobApplication> jobApplications = jobApplicationService.getAllJobApplications();
+        logger.info("Found {} job applications", jobApplications.size());  // Log success
         return ResponseEntity.ok(jobApplications);  // Return the list of all job applications
     }
 

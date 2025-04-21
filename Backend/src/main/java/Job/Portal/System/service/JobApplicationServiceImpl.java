@@ -4,7 +4,6 @@ import Job.Portal.System.model.JobApplication;
 import Job.Portal.System.model.User;
 import Job.Portal.System.model.Job;
 import Job.Portal.System.repository.JobApplicationRepository;
-import Job.Portal.System.service.JobApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

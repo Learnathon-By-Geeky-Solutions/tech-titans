@@ -2,7 +2,6 @@ package Job.Portal.System.service;
 
 import Job.Portal.System.model.JobCategory;
 import Job.Portal.System.repository.JobCategoryRepository;
-import Job.Portal.System.service.JobCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

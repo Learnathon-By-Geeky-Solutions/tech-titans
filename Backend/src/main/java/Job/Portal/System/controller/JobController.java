@@ -21,14 +21,11 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-
     @Autowired
     private EmployeeService employeeService;
 
-
     @Autowired
     private JobCategoryService jobCategoryService;
-
 
     @Autowired
     private UserService userService;
