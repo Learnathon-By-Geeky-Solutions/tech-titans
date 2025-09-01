@@ -10,6 +10,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Column;
 import lombok.Data;
 
+//  Represents an employee or a company in the job portal system.
+
 @Data
 @Entity
 @Table(name = "employees")
